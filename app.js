@@ -71,9 +71,14 @@ const server = app.listen(port, () => {
 app.use("/", userRoutes);
 app.use("/", postRoutes);
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/main/index.html');
-});
+// app.get('/main', (req, res) => {
+//     res.sendFile(__dirname + '/main/index.html');
+// });
+// app.get('/contact', (req, res) => {
+//     res.sendFile(__dirname + '/main/contact.html');
+// });
+
+
 
 // Socket.io setup
 const io = socket(server);

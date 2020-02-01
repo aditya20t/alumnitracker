@@ -1,6 +1,6 @@
-Facebook Clone
+Alumni Tracker
 ==============
-This is a facebook clone web app written with:  
+This is a Alumni Tracker web app written with:  
     Node.js  
     Express  
     Mongoose (MongoDB)  

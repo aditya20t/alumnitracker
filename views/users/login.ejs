@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Facebook Clone</title>
+    <title>Alumni Hub</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-core.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/global.css">
+    
     <link rel="stylesheet" href="/users/login.css">
 </head>
 <body>
 
     <style>
-        #profile-signup {
+        /* #profile-signup {
             width: 0.1px;
             height: 0.1px;
             opacity: 0;
@@ -20,24 +20,8 @@
             position: absolute;
             z-index: -1;
             cursor: pointer;
-        }    
+        }     */
 
-        #profile-label-signup {
-            cursor: pointer;
-        }
-
-        #profile-signup + #profile-label-signup {
-            font-size: 1.25em;
-            font-weight: 700;
-            color: white;
-            background-color: black;
-            display: inline-block;
-        }
-
-        #profile-signup:focus + #profile-label-signup,
-        #profile-signup + #profile-label-signup:hover {
-            background: red;
-        }
     </style>
 
     <!-- <header class="header">
@@ -48,7 +32,7 @@
         
         <div class="text-box">
             <h1 class="heading-primary">
-                <span class="heading-primary-main">Facebook Clone</span>
+                <span class="heading-primary-main">Alumni Hub</span>
                 <span class="heading-primary-sub">made in node.js</span>
             </h1>
         </div>
@@ -84,26 +68,67 @@
             <div class="content">
               <h2>Sign Up</h2>
               <form id="form-signup" method="POST" action="/user/register" enctype="multipart/form-data">
+                
                 <div class="form-element form-stack">
-                  <label for="email" class="form-label">Email</label>
-                  <input id="email" type="email" name="username">
+                    <label for="firstname-signup" class="form-label">First Name</label>
+                    <input id="firstname-signup" type="text" name="firstname">
                 </div>
-                <div class="form-element form-stack">
-                  <label for="firstname-signup" class="form-label">First Name</label>
-                  <input id="firstname-signup" type="text" name="firstname">
-                </div>
+                
                 <div class="form-element form-stack">
                     <label for="lastname-signup" class="form-label">Last Name</label>
                     <input id="lastname-signup" type="text" name="lastname">
                 </div>
+
                 <div class="form-element form-stack">
-                    <label for="profile-signup" id="profile-label-signup"><span>Profile Picture</span></label>
-                    <input type="file" id="profile-signup" name="image" accept="image/*">
+                    <label for="gender-select" class="form-label">Gender</label>
+                    <input id="gender-select" type="radio" name="gender" value="male"><p style="color: aliceblue;">Male</p>
+                    <input id="gender-select" type="radio" name="gender" value="female"><p style="color: #FFFFFF;" >Female</p>
                 </div>
+
+                <div class="form-element form-stack">
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" type="email" name="username">
+                </div>
+
+                <div class="form-element form-stack">
+                    <label for="graduation-yr" class="form-label">Graduation Year</label>
+                    <input id="graduation-yr" type="number" name="graduation-year">
+                </div>
+
+                <div class="form-element form-stack">
+                    <label for="branch-sel" class="form-label">Branch</label>
+                    <input id="branch-sel" type="text" name="branch">
+                </div>                
+
+                <div class="form-element form-stack">
+                    <label for="enroll" class="form-label">Enrollment Number</label>
+                    <input id="enroll" type="text" name="enrollment">
+                </div>
+
+                <div class="form-element form-stack">
+                    <label for="occupation-sel" class="form-label">Occupation</label>
+                    <input id="occupation-sel" type="text" name="occupation">
+                </div> 
+                
+                <div class="form-element form-stack">
+                    <label for="curr-city" class="form-label">Current City</label>
+                    <input id="curr-city" type="text" name="city">
+                </div>  
+
+                <div class="form-element form-stack">
+                    <label for="contact-no" class="form-label">Contact Number</label>
+                    <input id="contact-no" type="number" name="contact">
+                </div>
+                
                 <div class="form-element form-stack">
                   <label for="password-signup" class="form-label">Password</label>
                   <input id="password-signup" type="password" name="password">
                 </div>
+
+                <div class="form-element form-stack">
+                    <label for="password-signup2" class="form-label">Re-Type Password</label>
+                    <input id="password-signup2" type="password" name="password2">
+                  </div>
                 <div class="form-element form-submit">
                   <button id="signUp" class="signup" type="submit" name="signup">Sign up</button>
                   <button id="goLeft" class="signup off">Log In</button> 
@@ -134,24 +159,7 @@
       </div>
     
     <script>
-        // If user picks a profile picture he can see the name of the file
-        let fileInput = document.querySelector( '#profile-signup' );
-        let label	 = document.querySelector("#profile-label-signup");
-        let labelVal = label.innerHTML;
-
-        fileInput.addEventListener( 'change', function( e )
-        {
-            let fileName = '';
-            if( fileInput.files && fileInput.files.length > 1 )
-                fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', fileInput.files.length );
-            else
-                fileName = e.target.value.split( '\\' ).pop();
-
-            if( fileName )
-                label.querySelector( 'span' ).innerHTML = fileName;
-            else
-                label.innerHTML = labelVal;
-        });
+       
 
     /* ====================== *
     *  Toggle Between        *

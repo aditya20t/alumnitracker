@@ -39,7 +39,8 @@ passport.deserializeUser(User.deserializeUser());
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(express.static("main"));
+// app.use(express.static("main"));
+
 // Set up flash (alerts)
 app.use(flash());
 
@@ -71,9 +72,9 @@ const server = app.listen(port, () => {
 app.use("/", userRoutes);
 app.use("/", postRoutes);
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/main/index.html');
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/main/index.html');
+// });
 
 // Socket.io setup
 const io = socket(server);

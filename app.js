@@ -39,7 +39,8 @@ passport.deserializeUser(User.deserializeUser());
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-// app.use(express.static("main"));
+app.use(express.static("main"));
+
 
 // Set up flash (alerts)
 app.use(flash());
@@ -61,20 +62,22 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/",(req, res) =>{
+    res.sendFile(__dirname + "/main/index.html");
+});
+
 // Routes & Middleware
+app.use("/", userRoutes);
+app.use("/", postRoutes);
+
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/main/index.html');
+});
 
 const server = app.listen(port, () => {
     console.log("App is running on port " + port);
 });
-
-
-
-app.use("/", userRoutes);
-app.use("/", postRoutes);
-
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/main/index.html');
-// });
 
 // Socket.io setup
 const io = socket(server);

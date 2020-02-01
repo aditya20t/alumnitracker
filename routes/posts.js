@@ -38,7 +38,7 @@ const isLoggedIn = (req, res, next) => {
 };
 
 // Index page
-router.get("/", isLoggedIn, (req, res) => {
+router.get("/profile", isLoggedIn, (req, res) => {
     // get all posts
     // Post.find({}, (err, posts) => {
     User.findById(req.user._id)
@@ -203,7 +203,7 @@ function createPost(newPost, req, res) {
         } else {
             req.user.posts.push(post._id);
             req.user.save();
-            res.redirect("/");
+            res.redirect("/profile");
         }
     });
 }

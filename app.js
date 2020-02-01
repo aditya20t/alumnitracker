@@ -39,6 +39,7 @@ passport.deserializeUser(User.deserializeUser());
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.static("main"));
 
 // Set up flash (alerts)
 app.use(flash());
@@ -58,6 +59,10 @@ app.use((req, res, next) => {
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
+});
+
+app.get("/",(req, res) =>{
+    res.sendFile(__dirname + "/main/index.html");
 });
 
 // Routes & Middleware

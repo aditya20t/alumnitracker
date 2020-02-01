@@ -65,7 +65,7 @@ function createUser(newUser, password, req, res) {
     User.register(newUser, password, (err, user) => {
         if (err) {
             req.flash("error", err.message);
-            res.redirect("/");
+            res.redirect("/profile");
         } else {
             passport.authenticate("local")(req, res, function() {
                 console.log(req.user);
@@ -73,7 +73,7 @@ function createUser(newUser, password, req, res) {
                     "success",
                     "Success! You are registered and logged in!"
                 );
-                res.redirect("/");
+                res.redirect("/profile");
             });
         }
     });
@@ -88,7 +88,7 @@ router.get("/user/login", (req, res) => {
 router.post(
     "/user/login",
     passport.authenticate("local", {
-        successRedirect: "/",
+        successRedirect: "/profile",
         failureRedirect: "/user/login"
     }),
     (req, res) => {}
@@ -103,7 +103,7 @@ router.get("/user/all", isLoggedIn, (req, res) => {
                 "error",
                 "There has been a problem getting all users info."
             );
-            res.redirect("/");
+            res.redirect("/profile");
         } else {
             res.render("users/users", { users: users });
         }
@@ -296,7 +296,7 @@ router.get("/chat", isLoggedIn, (req, res) => {
                     "error",
                     "There has been an error trying to access the chat"
                 );
-                res.redirect("/");
+                res.redirect("/profile");
             } else {
                 res.render("users/chat", { userData: user });
             }

@@ -47,7 +47,16 @@ router.post("/user/register", upload.single("image"), (req, res) => {
         let newUser = new User({
             username: req.body.username,
             firstName: req.body.firstname,
-            lastName: req.body.lastname
+            lastName: req.body.lastname,
+            gender: req.body.gender,
+            email: req.body.email,
+            graduationYear: req.body.graduation_year,
+            branch: req.body.branch,
+            enrollment: req.body.enrollment,
+            occupation: req.body.occupation,
+            contactNumber: req.body.contactNumber,
+            city: req.body.city,
+            contactNumber: req.body.contactNumber
         });
         if (req.file) {
             cloudinary.uploader.upload(req.file.path, result => {

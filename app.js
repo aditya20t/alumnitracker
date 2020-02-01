@@ -80,7 +80,9 @@ const server = app.listen(port, () => {
 });
 
 // Socket.io setup
-const io = socket(server);
+   const io = socket(server);
+
+   var serve  = require('http').createServer(app);
 
 const room = io.of("/chat");
 room.on("connection", socket => {

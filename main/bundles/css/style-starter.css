@@ -10771,6 +10771,22 @@ h4.sub-title {
   -webkit-transform: translate3d(0, -5px, 0);
   transition: 0.3s ease-out; }
 
+#chatbot{
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  z-index: 99;
+  border: none;
+  color: #fff;
+  background: #00abff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#chatbot:hover{
+  background: #606060;
+}
+
 .w3l-market-footer .midd-footer-28 {
   background: #F1F4F9; }
 

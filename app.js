@@ -64,20 +64,10 @@ app.use((req, res, next) => {
 app.use("/", userRoutes);
 app.use("/", postRoutes);
 
-<<<<<<< HEAD
-// app.get('/main', (req, res) => {
-//     res.sendFile(__dirname + '/main/index.html');
-// });
-// app.get('/contact', (req, res) => {
-//     res.sendFile(__dirname + '/main/contact.html');
-// });
 
-
-=======
 const server = app.listen(port, () => {
     console.log("App is running on port " + port);
 });
->>>>>>> parent of 12d6c4d... added main page
 
 // Socket.io setup
 const io = socket(server);

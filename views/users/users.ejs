@@ -1,9 +1,9 @@
 <% include ../partials/header %>
 
 
-<div class="row">
+<div class="row" >
     <% users.forEach(function(person) { %> 
-        <div class="card col-sm-3">
+        <div class="card col-sm-3" style="background-color:#e7f0c3;">
             <img class="card-img-top" src="/profile.png" alt="Profile">
             <div class="card-body">
                 <h4 class="card-title"><%= person.firstName + " " + person.lastName %></h4>

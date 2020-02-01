@@ -41,6 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.static("main"));
 
+
 // Set up flash (alerts)
 app.use(flash());
 
@@ -69,6 +70,10 @@ app.get("/",(req, res) =>{
 app.use("/", userRoutes);
 app.use("/", postRoutes);
 
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/main/index.html');
+});
 
 const server = app.listen(port, () => {
     console.log("App is running on port " + port);

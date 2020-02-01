@@ -39,7 +39,7 @@ passport.deserializeUser(User.deserializeUser());
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(express.static("main"));
+
 // Set up flash (alerts)
 app.use(flash());
 
@@ -61,16 +61,10 @@ app.use((req, res, next) => {
 });
 
 // Routes & Middleware
-
-const server = app.listen(port, () => {
-    console.log("App is running on port " + port);
-});
-
-
-
 app.use("/", userRoutes);
 app.use("/", postRoutes);
 
+<<<<<<< HEAD
 // app.get('/main', (req, res) => {
 //     res.sendFile(__dirname + '/main/index.html');
 // });
@@ -79,6 +73,11 @@ app.use("/", postRoutes);
 // });
 
 
+=======
+const server = app.listen(port, () => {
+    console.log("App is running on port " + port);
+});
+>>>>>>> parent of 12d6c4d... added main page
 
 // Socket.io setup
 const io = socket(server);
